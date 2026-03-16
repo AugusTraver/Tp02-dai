@@ -1,0 +1,14 @@
+{
+  "name": "morgan",
+  "version": "1.0.0",
+  "description": "El tp1",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tp1": "node src/Tp1.js",
+    "tp2": "node src/Tp2.js"
+  }
+}
