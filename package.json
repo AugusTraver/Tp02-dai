@@ -8,7 +8,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tp1": "node src/Tp1.js",
-    "tp2": "node src/Tp2.js"
+    "tp1": "node src/modules/Tp1.js",
+    "tp2": "node src/modules/Tp2.js",
+    "tp3": "node src/modules/Tp3.js",
+    "tp4": "node src/modules/Tp4.js"
   }
 }

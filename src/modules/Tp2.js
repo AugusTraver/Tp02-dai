@@ -1,5 +1,5 @@
 /* Importo la constante PI y la función sumar del módulo matematica. */
-import {PI, sumar, multiplicar, dividir, restar} from '../src/modules/matematica.js';
+import {PI, sumar, multiplicar, dividir, restar} from './matematica.js';
 let total, numero1 = 10, numero2 = 20;
 console.clear();
 console.log(`La constante PI vale '${PI}'`); // Uso la constante PI importada.
