@@ -11,6 +11,14 @@
     "tp1": "node src/modules/Tp1.js",
     "tp2": "node src/modules/Tp2.js",
     "tp3": "node src/modules/Tp3.js",
-    "tp4": "node src/modules/Tp4.js"
+    "tp4": "node src/modules/Tp4.js",
+    "tp5": "node src/modules/Tp5.js",
+    "tp6": "node src/modules/tp6.js",
+    "tp7": "node src/modules/tp7.js",
+    "tp8": "node src/modules/tp8.js"
+  },
+  "dependencies": {
+    "axios": "^1.13.6",
+    "currency-map-country": "^1.0.12"
   }
 }
