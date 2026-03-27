@@ -9,8 +9,8 @@ const OMDBSearchByPage = async (searchText, page = 1) => {
     let url = "http://www.omdbapi.com/?"+ "apikey=" + APIKEY + "t=" + searchText + "&page=" + page;
     const apiResponse = await axios.get(url)
     returnObject.respuesta= apiResponse.data;
-    returnObject.cantidadTotal= apiResponse.Search.totalResults;
-     return returnObject;
+    returnObject.cantidadTotal= apiResponse.data.Search.totalResults;
+     return returnObject;   
 };
 const OMDBSearchComplete = async (searchText) => {
     let returnObject = {

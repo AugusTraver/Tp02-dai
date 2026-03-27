@@ -1,4 +1,4 @@
-import {OMDBSearchByPage, ...} from './modules/omdb-wrapper.js'
+import {OMDBSearchByPage} from './omdb-wrapper.js'
 let resultado = null;
 // Test de la función OMDBSearchByPage..
 resultado = await OMDBSearchByPage("cars", 1);
