@@ -2,6 +2,14 @@
   "name": "morgan",
   "version": "1.0.0",
   "description": "El tp1",
+  "homepage": "https://github.com/AugusTraver/Tp02-dai#readme",
+  "bugs": {
+    "url": "https://github.com/AugusTraver/Tp02-dai/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AugusTraver/Tp02-dai.git"
+  },
   "license": "ISC",
   "author": "",
   "type": "module",

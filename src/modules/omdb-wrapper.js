@@ -1,5 +1,4 @@
-/* Módulo OMDBWrapper*/
-import axios from "axios";
+ import axios from "axios";
 const APIKEY = "f91110dc";
 const OMDBSearchByPage = async (searchText, page = 1) => {
     let returnObject = {
@@ -7,8 +6,11 @@ const OMDBSearchByPage = async (searchText, page = 1) => {
         cantidadTotal: 0,
         datos: []
     };
-    // No seas vago, acá hay que hacer el cuerpo de la función!!!
-    return returnObject;
+    let url = "http://www.omdbapi.com/?"+ "apikey=" + APIKEY + "t=" + searchText + "&page=" + page;
+    const apiResponse = await axios.get(url)
+    returnObject.respuesta= apiResponse.data;
+    returnObject.cantidadTotal= apiResponse.Search.totalResults;
+     return returnObject;
 };
 const OMDBSearchComplete = async (searchText) => {
     let returnObject = {
