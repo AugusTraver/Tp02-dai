@@ -1,16 +1,20 @@
- import axios from "axios";
+import axios from "axios";
 const APIKEY = "f91110dc";
 const OMDBSearchByPage = async (searchText, page = 1) => {
     let returnObject = {
         respuesta: false,
         cantidadTotal: 0,
         datos: []
-    };
-    let url = "http://www.omdbapi.com/?"+ "apikey=" + APIKEY + "t=" + searchText + "&page=" + page;
+    }; 
+
+    let url = "http://www.omdbapi.com/?" + "apikey=" + APIKEY + "&s=" + searchText + "&page=" + page;
+    
+    console.log(url)
     const apiResponse = await axios.get(url)
-    returnObject.respuesta= apiResponse.data;
-    returnObject.cantidadTotal= apiResponse.data.Search.totalResults;
-     return returnObject;   
+    returnObject.respuesta = true;
+    returnObject.datos = apiResponse.data;
+    returnObject.cantidadTotal = apiResponse.data.totalResults || null;
+    return returnObject;
 };
 const OMDBSearchComplete = async (searchText) => {
     let returnObject = {
