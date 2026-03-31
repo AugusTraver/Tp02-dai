@@ -5,10 +5,10 @@ const OMDBSearchByPage = async (searchText, page = 1) => {
         respuesta: false,
         cantidadTotal: 0,
         datos: []
-    }; 
+    };
 
     let url = "http://www.omdbapi.com/?" + "apikey=" + APIKEY + "&s=" + searchText + "&page=" + page;
-    
+
     console.log(url)
     const apiResponse = await axios.get(url)
     returnObject.respuesta = true;
@@ -16,23 +16,60 @@ const OMDBSearchByPage = async (searchText, page = 1) => {
     returnObject.cantidadTotal = apiResponse.data.totalResults || null;
     return returnObject;
 };
+
+
+
+
 const OMDBSearchComplete = async (searchText) => {
     let returnObject = {
         respuesta: false,
         cantidadTotal: 0,
         datos: []
     };
-    // No seas vago, acá hay que hacer el cuerpo de la función!!!
+    let pagina = 1
+
+    let url = 'http://www.omdbapi.com/?' + 'apikey=' + APIKEY + '&s=' + searchText + '&page=' + pagina
+
+    let response = await axios.get(url)
+
+    returnObject.cantidadTotal = response.data.totalResults;
+
+    let CantidadDePaginasARecorrer = Math.ceil(returnObject.cantidadTotal / 10);
+
+    for (let i = 0; i <= CantidadDePaginasARecorrer; i++) {
+        let url = 'http://www.omdbapi.com/?' + 'apikey=' + APIKEY + '&s=' + searchText + '&page=' + pagina
+        let response = await axios.get(url)
+
+        if (response.data.Response === "True") {
+            returnObject.respuesta = true;
+            returnObject.datos = returnObject.datos.concat(response.data.Search);
+        }
+        pagina++
+    }
     return returnObject;
+
 };
+
+
+
+
 const OMDBGetByImdbID = async (imdbID) => {
     let returnObject = {
         respuesta: false,
         cantidadTotal: 0,
         datos: {}
     };
-    // No seas vago, acá hay que hacer el cuerpo de la función!!!
-    return returnObject;
+    let url = 'http://www.omdbapi.com/?' + 'apikey=' + APIKEY + '&' + 'i=' + imdbID
+
+let response = await axios.get(url)
+
+if(response.data.Response === "True"){
+    returnObject.respuesta = true;
+    returnObject.datos = response.data;
+}
+
+
+return returnObject;
 };
-// Exporto todo lo que yo quiero exponer del módulo:
+
 export { OMDBSearchByPage, OMDBSearchComplete, OMDBGetByImdbID };
