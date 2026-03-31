@@ -12,7 +12,7 @@ const OMDBSearchByPage = async (searchText, page = 1) => {
     console.log(url)
     const apiResponse = await axios.get(url)
     returnObject.respuesta = true;
-    returnObject.datos = apiResponse.data;
+    returnObject.datos = apiResponse.data.Search;
     returnObject.cantidadTotal = apiResponse.data.totalResults || null;
     return returnObject;
 };
